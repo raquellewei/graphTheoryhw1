@@ -61,8 +61,8 @@ for i = 1:length(color2) % To find out if two adjacent nodes have the same color
         break;
     end
 end
-disp(color1)
-disp(color2)
+%disp(color1)
+%disp(color2)
 
 %%
 if flag == 1
@@ -88,13 +88,13 @@ if flag == 1
         index1 = find(bfs_matrix(1,:) == mark1);
     end
     if ismember(bfs_matrix(2,index2),array1) % We find the commom ancester of mark1 and mark2
-        dump_index = find(array1 == bfs_matrix(2,index2))
+        dump_index = find(array1 == bfs_matrix(2,index2));
     end
     while ~(ismember(bfs_matrix(2,index2),array1))
         mark2 = bfs_matrix(2,index2);
         array2 = [array2,mark2];
         index2 = find(bfs_matrix(1,:) == mark2);
-        dump_index = find(array1 == bfs_matrix(2,index2))
+        dump_index = find(array1 == bfs_matrix(2,index2));
     end
     for i = (1:length(array1)-dump_index) % To delete ancesters of the first common ancester of mark1 and mark2 from array1, since they are not in the cycle.
         array1(end) = [];
